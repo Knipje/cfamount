@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CF playercount</title>
+        <meta name="description" content="thingies lmao">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="30; URL=https://knipje.github.io/cfamount/">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        
+        <script>
+            $(function() {
+                $.get("https://api.mcsrvstat.us/2/play.creativefun.net", function(data) {
+                    $(".container").text("There are currently " + data.players.online + " players online.");
+                    $("meta[property='description']").attr("content", data.players.online);
+                });
+            });
+        </script>
+        <style>
+            body{
+                background: linear-gradient(90deg, rgba(0,0,0,1) -10%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,1) 110%),
+                            url('https://e0.pxfuel.com/wallpapers/441/809/desktop-wallpaper-minecraft-dirt-background.jpg');
+                background-size: cover;
+            }
+
+            .container{
+                height: 80px;
+                width: 100%;
+                background: #253280;
+                border-radius: 100px;
+                color: #F8DA61;
+                font-family: "Squada One", sans-serif;
+                font-size: 3.5em;
+                margin-top: auto;
+                margin-bottom: auto;
+                vertical-align: middle;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+            }
+            
+            .centered {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 80%;
+                transform: translate(-50%, -50%);
+            }
+
+            .squidward{
+                position: fixed;
+                bottom:-10%;
+                left:5%;
+                z-index: -1;
+            }
+
+            .squidward img{
+                height: 30em;
+                width: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "centered">
+            <div class = "container">Fetching data...</div>
+        </div>
+
+        <div class = "squidward"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Squidward_Tentacles.svg/640px-Squidward_Tentacles.svg.png"/></div>
+    </body>
+</html>
